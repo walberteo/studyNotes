@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{grupo.titulo}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let nota of notas" (press)="menuOpcao(nota)" (tap)="abrir(nota)">
+
+    <ion-item>
+      <h2>{{nota.titulo}}</h2>
+      <ion-note>{{dataFormatada(nota.data)}}</ion-note>
+    </ion-item>
+
+    <ion-card-content>
+      {{nota.descricao.substr(0, nota.descricao.length > 150 ? 150 : nota.descricao.length - 1 )}} {{nota.descricao.length > 150 ? '...' : ''}}
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="adiciona()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

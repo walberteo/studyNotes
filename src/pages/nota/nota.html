@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{grupo.titulo}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form (ngSubmit)="grava()">
+
+    <ion-item>
+      <ion-label floating>Título</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="nota.titulo" name="titulo" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Data</ion-label>
+      <ion-datetime  [(ngModel)]="nota.data" name="data" displayFormat="DD/MM/YY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-textarea class="textNota" placeholder="" [(ngModel)]="nota.descricao" name="descricao"></ion-textarea>
+    </ion-item>
+
+    <ion-fab right bottom>
+      <button ion-fab type="submit" [disabled]="!nota.titulo"><ion-icon name="create"></ion-icon></button>
+    </ion-fab>
+
+  </form>
+
+</ion-content>

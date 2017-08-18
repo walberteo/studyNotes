@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Grupo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <form (ngSubmit)="grava()">
+    <ion-list>
+      <ion-item-group>
+
+        <ion-item>
+          <ion-label floating>Título</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="grupo.titulo" name="titulo" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Descrição</ion-label>
+          <ion-textarea placeholder="" [(ngModel)]="grupo.descricao" name="descricao"></ion-textarea>
+        </ion-item>
+
+      </ion-item-group>
+
+    </ion-list>
+
+    <ion-fab right bottom>
+      <button ion-fab type="submit"[disabled]="!grupo.titulo"><ion-icon name="{{grupo.key ? 'create' : 'arrow-forward'}}"></ion-icon></button>
+    </ion-fab>
+
+  </form>
+
+</ion-content>

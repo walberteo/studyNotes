@@ -1,14 +1,36 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      <ion-icon name="school"></ion-icon>
+      StudyNotes
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-card *ngFor="let grupo of allGrupo" (press)="presentActionSheet(grupo)" (tap)="abrir(grupo)">
+
+    <ion-item>
+      <h2>{{grupo.titulo}}</h2>
+      <p>{{grupo.descricao}}</p>
+    </ion-item>
+
+    <ion-row>
+
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="document"></ion-icon>
+          <div>{{grupo.notas}} {{grupo.notas == 1 ? 'Anotação' : 'Anotações'}}</div>
+        </button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="adiciona()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
 </ion-content>
