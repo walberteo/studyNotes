@@ -59,7 +59,7 @@
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {}
         },
-        "platforms": [
+        "platforms":[
             "android"
         ]
     }
